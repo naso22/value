@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag "application", media: "all" %>
+<header>
+  <div><%= link_to "header-logo", tasks_path %></div>
+  <% if user_signed_in? %>
+    <div><%= current_user.name %></div>
+  <div><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
+  <% else %>
+ <%= link_to new_user_registration_path do %>
+     <div>新規登録</div>
+    <% end %>
+ <%= link_to new_user_session_path do %>
+     <div>ログイン</div>
+    <% end %>
+        <% end %>
+</header>
